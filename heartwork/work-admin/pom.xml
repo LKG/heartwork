@@ -7,4 +7,71 @@
   </parent>
   <artifactId>work-admin</artifactId>
   <name>work-admin</name>
+   <packaging>war</packaging>
+  <dependencies>
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-conf</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+<!-- 		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-frame</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-usercore</artifactId>
+			<version>${project.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-rpt</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+<!-- 					<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-cms</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-websocket</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-msg</artifactId>
+			<version>${project.version}</version>
+		</dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- ... -->
+			<!-- maven打包的时候告诉maven不需要web.xml,否刚会报找不到web.xml错误 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration><!-- <warName>${project.artifactId}</warName> -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
