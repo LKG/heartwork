@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import im.heart.core.enums.Status;
+import im.heart.core.plugins.captcha.ImageCaptchaExService;
 /*import im.heart.core.plugins.captcha.ImageCaptchaExService;*/
 import im.heart.core.utils.StringUtilsEx;
 import im.heart.security.AccountToken;
@@ -86,8 +87,8 @@ public class FrameUserRealm extends AuthorizingRealm {
 	@Autowired
 	private FrameRoleService frameRoleService;
 
-//	@Autowired
-//	private ImageCaptchaExService imageCaptchaService;
+	@Autowired
+	private ImageCaptchaExService imageCaptchaService;
 
 	/**
 	 * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用.
@@ -124,9 +125,9 @@ public class FrameUserRealm extends AuthorizingRealm {
 			if(StringUtilsEx.isBlank(validateCode)){
 				throw new IncorrectCaptchaException();
 			}	
-//			if(!this.imageCaptchaService.validateResponseForID(sessionId, validateCode).booleanValue()){
-//				throw new IncorrectCaptchaException();
-//			};
+			if(!this.imageCaptchaService.validateResponseForID(sessionId, validateCode).booleanValue()){
+				throw new IncorrectCaptchaException();
+			};
 		}
 	}
 
