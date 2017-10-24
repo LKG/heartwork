@@ -7,4 +7,38 @@
   </parent>
   <artifactId>work-conf</artifactId>
   <name>work-conf</name>
+  <description>项目配置资源信息</description>
+	<dependencies>
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-core</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>true</filtering>  <!-- 加上filter会过滤该资源路径中的文件 -->
+				<includes>
+					<include>*.properties</include>
+					<include>*.xml</include>
+					<include>templates/**</include>
+					<include>messages/**</include>
+					<include>ehcache/**</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>static/**</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 </project>
