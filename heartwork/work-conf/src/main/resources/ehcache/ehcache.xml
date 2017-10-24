@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ehcache >
+<ehcache name="im" updateCheck="false" >
+	<diskStore path="java.io.tmpdir" />
+    <!--  	   配置自定义缓存
+        maxElementsInMemory：缓存中允许创建的最大对象数
+        eternal：缓存中对象是否为永久的，如果是，超时设置将被忽略，对象从不过期。
+        timeToIdleSeconds：缓存数据的钝化时间，也就是在一个元素消亡之前，
+                    两次访问时间的最大时间间隔值，这只能在元素不是永久驻留时有效，
+                    如果该值是 0 就意味着元素可以停顿无穷长的时间。
+        timeToLiveSeconds：缓存数据的生存时间，也就是一个元素从构建到消亡的最大时间间隔值，
+                    这只能在元素不是永久驻留时有效，如果该值是0就意味着元素可以停顿无穷长的时间。
+        overflowToDisk：内存不足时，是否启用磁盘缓存。
+        diskPersistent：设定在虚拟机重启时是否进行磁盘存储，默认为false
+        memoryStoreEvictionPolicy：缓存满了之后的淘汰算法。 -->
+        <defaultCache    
+		maxElementsInMemory="1000"    
+		eternal="false"    
+		timeToIdleSeconds="120"    
+		timeToLiveSeconds="120"    
+		overflowToDisk="true"    
+		/>    
+	<!-- 区域缓存 -->
+	<cache name="areas-cache" 
+		eternal="false"
+		timeToIdleSeconds="3600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+        memoryStoreEvictionPolicy="LFU" >
+	</cache>
+		<!-- 缓存 -->
+	<cache name="permissions-cache" 
+		eternal="false"
+		timeToIdleSeconds="3600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+        memoryStoreEvictionPolicy="LFU" >
+	</cache>
+	<!-- 授权码缓存 -->
+	<cache name="oAuthCode-cache" 
+		eternal="false"
+		timeToIdleSeconds="3600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+        memoryStoreEvictionPolicy="LFU" >
+	</cache>
+	<!--防暴力破解 -->
+	<cache name="passwordRetry-cache" 
+		eternal="false"
+		timeToIdleSeconds="3600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"	
+		maxElementsInMemory="10000" 
+		memoryStoreEvictionPolicy="LFU" >
+	</cache>
+	<!--手机短信发送缓存  暂未使用 -->
+	<cache name="mobileCode-cache" 
+		eternal="false"
+		timeToIdleSeconds="3600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+		memoryStoreEvictionPolicy="LFU" >
+	</cache>
+	<!--邮件激活缓存  暂未使用 -->
+	<cache name="emailCode-cache" 
+		eternal="false"
+		timeToIdleSeconds="3600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+		memoryStoreEvictionPolicy="LFU" >
+	</cache>
+	<cache name="findPwd-cache" 
+		eternal="false"
+		timeToIdleSeconds="600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+		memoryStoreEvictionPolicy="LFU" >
+	</cache>
+		<cache name="shiro-activeSessionCache" 
+		eternal="false"
+		timeToIdleSeconds="600" 
+		timeToLiveSeconds="0" 
+		diskPersistent = "true"
+		overflowToDisk="false"
+		maxElementsInMemory="10000" 
+		memoryStoreEvictionPolicy="LFU" >
+	</cache>
+	
+</ehcache>
