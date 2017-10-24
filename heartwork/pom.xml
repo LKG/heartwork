@@ -4,4 +4,439 @@
   <artifactId>heartwork</artifactId>
   <version>0.5.1</version>
   <packaging>pom</packaging>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+		<!-- TEST begin -->
+		<junit.version>4.11</junit.version>
+		<testng.version>6.8.21</testng.version>
+		<!-- TEST end -->
+		<!-- 日志相关begin -->
+		<slf4j.version>1.7.5</slf4j.version>
+		<log4j2.log4jdbc.version>1.16</log4j2.log4jdbc.version>
+		<!-- 日志相关end -->
+		<commons-io.version>2.4</commons-io.version>
+		<commons-codec.version>1.9</commons-codec.version>
+		<commons-collections.version>3.2.2</commons-collections.version>
+		<commons-compress.version>1.8.1</commons-compress.version>
+		<commons-fileupload.version>1.3</commons-fileupload.version>
+		<commons-lang3.version>3.1</commons-lang3.version>
+		<!--数据库驱动依赖begin -->
+		<mysql.jdbc.version>5.1.21</mysql.jdbc.version>
+		<sqlite.version>3.8.11.2</sqlite.version>
+		<postgresql.jdbc.version>9.4.1212</postgresql.jdbc.version>
+		<!--数据库驱动依赖end -->
+		<!-- 邮件相关begin -->
+		<javaxmail.version>1.4.7</javaxmail.version>
+		<!-- 邮件相关end -->
+		<!-- 数据库连接池 begin -->
+		<druid.version>1.1.3</druid.version>
+		<hikaricp.version>2.6.3</hikaricp.version>
+		<!-- 数据库连接池 end -->
+		<!-- 时间处理工具类 begin -->
+		<joda-time.version>2.7</joda-time.version>
+		<prettytime.version>3.2.5.Final</prettytime.version>
+		<!-- 时间处理工具类 end -->
+		<jsoup.version>1.10.3</jsoup.version>
+		<fastjson.version>1.2.28</fastjson.version>
+		<UserAgent.version>1.2.4</UserAgent.version>
+		<!-- google核心库 begin -->
+		<google.guava.version>23.0</google.guava.version>
+		<!-- google核心库 end -->
+		<!-- 二维码begin -->
+		<com.google.zxing.version>3.3.0</com.google.zxing.version>
+		<!-- 二维码end -->
+		<okhttp.version>3.6.0</okhttp.version>
+		<ehcache.version>1.6.2</ehcache.version>
+		<jedis.version>2.8.1</jedis.version>
+		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<swagger2.version>2.6.1</swagger2.version>
+		<spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+		<aliyunOss.version>2.7.0</aliyunOss.version>
+		<qiniu.version>7.2.6</qiniu.version>
+		<pinyin4j.version>2.5.1</pinyin4j.version>
+		<tomcat.version>7.0.79</tomcat.version>
+		<shiro.version>1.3.2</shiro.version>
+		<oltu.version>1.0.2</oltu.version>
+		<raven-logback.version>6.0.0</raven-logback.version><!--日志跟踪平台 暂未使用 -->
+		<scribejava.version>4.2.0</scribejava.version>
+		<spring.session.version>1.3.1.RELEASE</spring.session.version>
+		<urule.version>2.0.5</urule.version><!-- urule规则引擎 暂时不使用 -->
+	</properties>
+	<!-- 开发人员信息begin -->
+	<!--项目开发者列表 -->
+	<developers>
+		<developer>
+			<id>lkg</id>
+			<!--项目开发者的全名 -->
+			<name>liukaige</name>
+			<email>lkg61230413@163.com</email>
+		</developer>
+	</developers>
+	<!-- 开发人员信息end -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- Test -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<version>${spring.boot.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.testng</groupId>
+				<artifactId>testng</artifactId>
+				<version>${testng.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<!-- 日志相关begin -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<!-- 增加SQL打印 -->
+			<dependency>
+				<groupId>org.bgee.log4jdbc-log4j2</groupId>
+				<artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+				<version>${log4j2.log4jdbc.version}</version>
+			</dependency>
+			<!-- 日志相关end -->
+			<!-- commons 包begin -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-compress</artifactId>
+				<version>${commons-compress.version}</version>
+			</dependency><!-- 压缩 -->
+			<dependency><!-- 加密 -->
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>${commons-codec.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons-io.version}</version>
+			</dependency>
+			<!-- commons 包end -->
+			<dependency>
+				<groupId>com.squareup.okhttp3</groupId>
+				<artifactId>okhttp</artifactId>
+				<version>${okhttp.version}</version>
+			</dependency>
+			<!-- 二维码相关jar包 BEGIN -->
+			<dependency>
+				<groupId>com.google.zxing</groupId>
+				<artifactId>core</artifactId>
+				<version>${com.google.zxing.version}</version>
+			</dependency>
+			<!-- 二维码相关jar包 END -->
+			<!-- html解析begin -->
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
+			</dependency>
+			<!-- html解析end -->
+			<!-- JSON begin -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<!-- JSON end -->
+			<!-- 时间处理工具类 begin -->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda-time.version}</version>
+			</dependency>
+			<!-- 时间处理工具类 end -->
+			<dependency>
+				<groupId>com.belerweb</groupId>
+				<artifactId>pinyin4j</artifactId>
+				<version>${pinyin4j.version}</version>
+			</dependency>
+			<!-- Google核心库 begin -->
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${google.guava.version}</version>
+			</dependency>
+			<!-- Google核心库 end -->
+			<!-- 日期美化 begin -->
+			<dependency>
+				<groupId>org.ocpsoft.prettytime</groupId>
+				<artifactId>prettytime</artifactId>
+				<version>${prettytime.version}</version>
+			</dependency>
+			<!-- 日期美化 end -->
+			<!-- 添加mysql 驱动begin -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.jdbc.version}</version>
+			</dependency>
+			<!-- 添加mysql 驱动end -->
+			<!-- postgresql驱动包 begin -->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.jdbc.version}</version>
+			</dependency>
+			<!-- postgresql驱动包 end -->
+			<!-- sqlite数据库类 begin -->
+			<dependency>
+				<groupId>org.xerial</groupId>
+				<artifactId>sqlite-jdbc</artifactId>
+				<version>${sqlite.version}</version>
+			</dependency>
+			<!-- sqlite数据库类 end -->
+			<dependency>  <!-- 配置数据库连接池begin -->
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.zaxxer</groupId>
+				<artifactId>HikariCP</artifactId>
+				<version>${hikaricp.version}</version>
+			</dependency>
+			<!-- 配置数据库连接池end -->
+			<!-- 邮件相关begin -->
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>${javaxmail.version}</version>
+			</dependency>
+			<!-- 邮件相关end -->
+			<!-- 集成ehcache需要的依赖 -->
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache</artifactId>
+				<version>${ehcache.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-mobile</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-freemarker</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-aop</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>nl.bitwalker</groupId>
+				<artifactId>UserAgentUtils</artifactId>
+				<version>${UserAgent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aliyun.oss</groupId>
+				<artifactId>aliyun-sdk-oss</artifactId>
+				<version>${aliyunOss.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.qiniu</groupId>
+				<artifactId>qiniu-java-sdk</artifactId>
+				<version>${qiniu.version}</version>
+			</dependency>
+			<!-- swagger2 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<!-- swagger2 -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-actuator</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<!-- 认证相关 -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-web</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-aspectj</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-ehcache</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<!-- 认证相关end -->
+			<dependency>
+				<groupId>org.apache.oltu.oauth2</groupId>
+				<artifactId>org.apache.oltu.oauth2.common</artifactId>
+				<version>${oltu.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.oltu.oauth2</groupId>
+				<artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
+				<version>${oltu.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.oltu.oauth2</groupId>
+				<artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
+				<version>${oltu.version}</version>
+			</dependency>
+			<!-- oauth2 第三方登录插件begin -->
+			<dependency>
+				<groupId>com.github.scribejava</groupId>
+				<artifactId>scribejava-apis</artifactId>
+				<version>${scribejava.version}</version>
+			</dependency>
+			<!-- oauth2 第三方登录插件end -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-websocket</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-activemq</artifactId>
+				<version>${spring.boot.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.session</groupId>
+				<artifactId>spring-session</artifactId>
+				<version>${spring.session.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.bstek.urule</groupId>
+				<artifactId>urule-core</artifactId>
+				<version>${urule.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<locales>zh_CN</locales>
+					<outputEncoding>UTF-8</outputEncoding>
+					<inputEncoding>UTF-8</inputEncoding>
+				</configuration>
+			</plugin>
+			<!-- cobertura 代码覆盖率工具 -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.5.2</version>
+				<configuration>
+					<check>
+						<branchRate>85</branchRate>
+						<lineRate>85</lineRate>
+						<haltOnFailure>true</haltOnFailure>
+						<totalBranchRate>85</totalBranchRate>
+						<totalLineRate>85</totalLineRate>
+						<packageLineRate>85</packageLineRate>
+						<packageBranchRate>85</packageBranchRate>
+						<regexes>
+							<regex>
+								<pattern>todo.*</pattern>
+								<branchRate>90</branchRate>
+								<lineRate>80</lineRate>
+							</regex>
+						</regexes>
+					</check>
+					<instrumentation>
+						<ignores>
+							<ignore>todo.*</ignore>
+						</ignores>
+						<excludes>
+							<exclude>todo//**/*.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+			</plugin>
+			<!-- findbugs 静态分析工具 -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>2.5.2</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin><!-- GPG签名 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.0</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
