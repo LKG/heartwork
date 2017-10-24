@@ -441,5 +441,6 @@
 	</build>
 	<modules>
 		<module>work-core</module>
+		<module>work-conf</module>
 	</modules>
 </project>
