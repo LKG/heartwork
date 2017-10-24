@@ -7,8 +7,7 @@
   </parent>
   <artifactId>work-core</artifactId>
   <name>work-core</name>
-  <description>核心模块</description>
-  	<dependencies>
+	<dependencies>
 		<!-- Test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
