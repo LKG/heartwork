@@ -444,5 +444,6 @@
 		<module>work-conf</module>
 		<module>work-rpt</module>
 		<module>work-admin</module>
+		<module>work-frame</module>
 	</modules>
 </project>
