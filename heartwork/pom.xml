@@ -445,5 +445,6 @@
 		<module>work-rpt</module>
 		<module>work-admin</module>
 		<module>work-frame</module>
+		<module>work-usercore</module>
 	</modules>
 </project>
