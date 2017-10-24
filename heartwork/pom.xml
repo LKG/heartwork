@@ -442,5 +442,6 @@
 	<modules>
 		<module>work-core</module>
 		<module>work-conf</module>
+		<module>work-rpt</module>
 	</modules>
 </project>
