@@ -1,7 +1,5 @@
 package im.heart.security.filter;
 
-import im.heart.core.CommonConst;
-
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +10,12 @@ import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import im.heart.core.CommonConst;
+/**
+ * 
+ * @author gg
+ * @desc App token 认证 //TODO
+ */
 public abstract class AbstractAppAuthenticationFilter extends AuthenticationFilter {
 	protected static final Logger logger = LoggerFactory.getLogger(AbstractAppAuthenticationFilter.class);
 
@@ -20,11 +24,12 @@ public abstract class AbstractAppAuthenticationFilter extends AuthenticationFilt
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
 		logger.debug("客户端校验进入校验！" + getLoginUrl());
-		String token = request.getParameter(TOKEN);
+		HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
+		String token = httpServletRequest.getHeader(TOKEN);
 		if (isAccess(token)) {
-			return onAccessSuccess(WebUtils.toHttp(request), WebUtils.toHttp(response));
+			return onAccessSuccess(httpServletRequest, WebUtils.toHttp(response));
 		}
-		return onAccessFail(WebUtils.toHttp(request), (HttpServletResponse) response);
+		return onAccessFail(httpServletRequest, (HttpServletResponse) response);
 	}
 
 	public abstract boolean isAccess(String token);
