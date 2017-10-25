@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-
+import im.heart.common.utils.LogLoginUtils;
 import im.heart.core.utils.BaseUtils;
 import im.heart.security.AccountToken;
 import im.heart.security.WebToken;
@@ -129,7 +129,7 @@ public class FrameAuthenticationFilter extends FormAuthenticationFilter {
 		HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
 		ShiroLoginHelper.setLoginSuccessSession();//清空登录次数限制
 		//记录登录成功日志
-		//SecurityUtilsHelperEx.loginlog(httpServletRequest);
+		LogLoginUtils.loginlog(httpServletRequest);
 		String loginSuccUrl = httpServletRequest.getContextPath()+ this.getSuccessUrl();
 		SavedRequest savedRequest = WebUtils.getAndClearSavedRequest(request);
 		if (savedRequest != null) {
