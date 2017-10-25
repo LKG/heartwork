@@ -1,0 +1,1 @@
+<link rel="stylesheet" href="${contextPath}/modules/laypage/skin/laypage.css"/>
