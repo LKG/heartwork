@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0px;
+}
+/**登录背景**/
+.lg_bg .img{opacity:0;}
+.lg_bg{ position:fixed; _position:absolute; width:100%; height:100%; z-index:-1; overflow:hidden}
+.lg_bg_in{ position:absolute; width:100%; height:100%}
+.lg_bg img{ visibility:hidden;}
+.lg_bg .on{ opacity:1; visibility:visible;}
+/**登录宣传区域**/
+.wrap-login {display: table;margin: 0 auto;width:100%;height: 530px; background-repeat: no-repeat;background-position: center top;}
+.wrap-login .login-banner{width:100%;display: table-cell;padding-left: 15px;text-align: right;padding-right: 15%;;position: relative;}
+/**登录box**/
+.lg_bd{ padding:0 0 18px; min-height:260px; _height:260px;}
+.lg_bd_in {margin-right: 180px;}
+.lg_bd_c{ position:relative;}
+.loginBox{min-height: 360px; _height: 360px; text-align: center;box-shadow:none;background:transparent;}
+.lg_bd_c1, .lg_bd_c2{ min-height:372px; _height:372px;}
+.lg_bd_c1{ position:relative; width:420px; float:right; top: 73px;}
+#header-inner {position:relative;width:990px;height:80px;margin:0 auto;}
+/* 主题控制栏 */
+.themeCtrl{position:absolute;left:60%;bottom:20px;}
+#prevTheme,#nextTheme{width:25px;height:25px;margin-right:8px;}

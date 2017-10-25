@@ -1,0 +1,108 @@
+.bank_list p{
+	float: left;
+  width: 186px;
+  height: 48px;
+  padding-left: 4px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+}
+.bank_list .ICBC{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px 0;
+}
+.bank_list .ABC{
+   background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -48px;
+}
+.bank_list .CMBCHINA {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -96px;
+}
+.bank_list .CCB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -144px;
+}
+.bank_list .BOC {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -192px;
+}
+.bank_list .BOCO {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -240px;
+}
+.bank_list .CIB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -288px;
+}
+.bank_list .CEB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -336px;
+}
+.bank_list .SPDB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -384px;
+}
+.bank_list .HXB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -432px;
+}
+.bank_list .CMBC {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -480px;
+}
+.bank_list .ECITIC {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -528px;
+}
+.bank_list .POST {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -576px;
+}
+.bank_list .PAB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -624px;
+}
+.bank_list .GDB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -674px;
+}
+.bank_list .CBHB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -768px;
+}
+.bank_list .NJCB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -816px;
+}
+.bank_list .BCCB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -864px;
+}
+.bank_list .NBCB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -912px;
+}
+.bank_list .HZB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -960px;
+}
+.bank_list .SHB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1008px;
+}
+.bank_list .BJRCB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1056px;
+}
+.bank_list .HKBEA {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1104px;
+}
+.bank_list .CZB {
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -720px;
+}
+.bank_list .DEBITCARD_ALIPAY{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1152px;
+}
+.bank_list .DEBITCARD_UNIONPAY{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1440px;
+}
+.bank_list .DEBITCARD_TENPAY{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1248px;
+}
+.bank_list .AliPay01{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1152px;
+}
+.bank_list .TenPay01{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1248px;
+}
+
+.bank_list .YeePay01{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1200px;
+}
+.bank_list .SCAN_ALIPAY{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1152px;
+}
+.bank_list .WOYF01{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1296px;
+}
+.bank_list .LAKALA{
+  background: url(../imgs/banks.gif?v=20140520) no-repeat 5px -1536px;
+}

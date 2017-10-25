@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0px;
+}
+
+.clearfix {
+	*zoom: 1
+}
+
+.clearfix:before,.clearfix:after {
+	display: table;
+	content:'\20';
+	clear:both;
+	line-height: 0;
+	height:0;
+	visibility: hidden;
+}
+
+.clearfix:after {
+	clear: both;
+}
+@media (max-width: 767px) {
+	body {
+		padding: 0
+	}
+}
+button[data-color=maleskine] {
+	color: white;
+	border-color: #e78170;
+	background: #e78170
+}
+
+button[data-color=maleskine]:hover,button[data-color=maleskine]:focus {
+	color: white;
+	border-color: #f49484;
+	background-color: #f49484
+}
+
+button[data-color=maleskine].active,button[data-color=maleskine]:active {
+	outline: none;
+	color: white;
+	border-color: #b34129;
+	background: #b34129;
+	box-shadow: none
+}
+
+li{list-style-type: none;}
+.login-box {width: 317px;overflow: hidden;margin: 0px 0px;border-top: 2px solid #ff4200;}
+.login-box.loading {height: 272px;background: #FFF url(../imgs/loading.gif) no-repeat 50% 50%;}
+.login-box.loading .bd {display: none;}
+.login-box .field {position: relative;z-index: 1;padding-bottom: 5px;}
+.login-box .field label {display: block;font-weight: 700;padding-bottom: 3px;	color: #666;}
+.login-box .bd {overflow: hidden;	padding-bottom: 5px; vertical-align: middle;zoom: 1;}
+.login-box .login-text {
+	width: 206px;
+	height: 28px;
+	line-height: 20px;
+	margin-right: 3px;
+	padding: 3px;
+	border:1px solid #ccc;
+	outline:none;
+	vertical-align: middle;
+}
+
+.login-box .login-text:hover{border-color:#0091d5;}
+.login-box .login-text:active,.login-box .login-text:focus,.login-box .login-text-active{outline: none;noFocusLine: expression(this.onFocus=this.blur());border-color: #319CFF;color:#000;box-shadow: 0 0 2px 2px #319CFF;}
+.login-box a:focus ,.login-box button:focus{outline: 0;}
+.login-box .message{
+	font: 12px/1.5 Tahoma,Helvetica,Arial,'\5B8B\4F53',sans-serif;
+	padding-top: 2px;
+	padding-left:  30px;
+	margin-top: 5px;
+	margin-right:  40px;
+	min-height:22px; 
+	_height:22px;
+}
+.login-box img {padding-top: 2px;}
+.login-box .forget-pw {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.qrcode-login{
+	padding-left: 0px !important;
+}
+.login-box .checkcode {
+	ime-mode: disabled !important;/* 屏蔽输入法 */
+	width: 75px;
+	height: 35px;
+	margin: 0;
+}
+.qrcode-main {
+	position: relative;
+	padding: 25px 0 5px;
+	min-height: 130px;
+	_height: 130px
+}
+.login-box .warning-tip{
+  position: absolute;
+  width: 206px;
+  height: 50px;
+  background: #fff;
+  left:38px;
+  top:-25px;
+  padding-bottom:0PX;
+  box-shadow: 0 0 5px #aaa;
+}
+.qrcode-img {
+	width: 115px;
+	height: 115px;
+	margin: 0 auto;
+	border: 2px solid #dedede;
+	box-shadow: 0 0 8px #DDD;
+}
+
+/*******/
+.qrcode-attention {padding: 5px 15px 0;}
+.qrcode-panel {color: #b0b0b0;text-align: center;}
+.qrcode-panel a {margin: 0 3px;}
+.qrcode-msg {display: none;padding-top: 100px;}
+.qrcode-login-error{display: none;}
+.qrcode-err {display: none;padding: 30px 25px 18px 94px;border-bottom: 1px dashed #F2F2F2;}
+.qrcode-desc {margin: 0 10px;padding: -10px 0 15px;color: #999;}
+.qrcode-desc em {color: #404040;}
+.qrcode-desc h2 {color: #333;font-size: 14px;font-weight: 700;}
+
+.btn-2login,.btn-2qrcode {
+	display: none;
+	width: 40px;
+	height: 40px;
+	line-height: 30px;
+	text-indent: -9999em;
+	text-decoration: none;
+	outline: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: -1px;
+	z-index: 2;
+	background: url(../imgs/switcher-pc.png) no-repeat 0 0;
+}
+.btn-2login:hover,.btn-2qrcode:hover {text-decoration: none;}
+.btn-2login:focus,.btn-2qrcode:focus {outline: 0;}
+.btn-2qrcode {background-image: url(../imgs/switcher-qr.png);}
+.login-box-switch{
+	position: absolute;
+	width: 317px;;
+	min-height: 317px;
+	_height: 317px;
+	z-index: 1;
+	padding-left: 30px;
+	padding-bottom: 40px; 
+	border: 1px solid #dedede;
+	-webkit-transform: translateZ(0);
+}
+.login-sns{
+	padding-left: 5px;	
+}
+
+.login-sns ul li {
+	position: relative;
+	float: left !important;
+}
+.login-sns ul li {
+	float: left;
+	width: 30px;
+	padding: 10px 25 5px;
+}
+#J_StandardPwd {
+	display: inline-block;
+	height: 28px;
+	vertical-align: middle;
+}
