@@ -9,6 +9,7 @@ import im.heart.core.web.utils.WebUtilsEx;
 import im.heart.log.entity.FrameLogOperate;
 import im.heart.log.service.FrameLogOperateService;
 import im.heart.security.utils.SecurityUtilsHelper;
+import im.heart.usercore.vo.FrameUserVO;
 
 public class OptLogUtils{
 	
@@ -25,8 +26,9 @@ public class OptLogUtils{
 		entity.setParams(requestParams);
 		entity.setType(optLog.type());
 		entity.setContent(optLog.detail());
-		entity.setUserName(SecurityUtilsHelper.getCurrentUser().getUserName());
-		entity.setUserId(SecurityUtilsHelper.getCurrentUser().getUserId());
+		FrameUserVO user = SecurityUtilsHelper.getCurrentUser();
+		entity.setUserName(user.getUserName());
+		entity.setUserId(user.getUserId());
 		entity.setUserHost(userHost);
 		entity.setUserAgent(userAgent);
 		logLoginService.optlog(entity);
