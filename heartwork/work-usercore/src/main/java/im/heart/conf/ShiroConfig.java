@@ -19,6 +19,7 @@ import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSource
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authz.SslFilter;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
+import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.mgt.WebSecurityManager;
 import org.apache.shiro.web.servlet.Cookie;
 import org.apache.shiro.web.servlet.SimpleCookie;
@@ -26,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -219,6 +221,18 @@ public class ShiroConfig {
 		ShiroSessionDAO sessionDAO=new ShiroSessionDAO();
 		return sessionDAO;
 	}
+	
+	/**
+     * 在方法中 注入 securityManager,进行代理控制
+     */
+    @Bean
+    public MethodInvokingFactoryBean methodInvokingFactoryBean(DefaultWebSecurityManager securityManager) {
+        MethodInvokingFactoryBean bean = new MethodInvokingFactoryBean();
+        bean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
+        bean.setArguments(new Object[]{securityManager});
+        return bean;
+    }
+	
 	/**
 	 * 	LifecycleBeanPostProcessor，这是个DestructionAwareBeanPostProcessor的子类，
 	 * 负责org.apache.shiro.util.Initializable类型bean的生命周期的，初始化和销毁。
