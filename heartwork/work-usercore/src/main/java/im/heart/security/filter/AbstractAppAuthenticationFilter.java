@@ -14,7 +14,7 @@ import im.heart.core.CommonConst;
 /**
  * 
  * @author gg
- * @desc App token 认证 //TODO
+ * @desc //TODO App token 认证 
  */
 public abstract class AbstractAppAuthenticationFilter extends AuthenticationFilter {
 	protected static final Logger logger = LoggerFactory.getLogger(AbstractAppAuthenticationFilter.class);
