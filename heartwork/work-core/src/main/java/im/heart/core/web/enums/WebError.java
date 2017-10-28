@@ -20,7 +20,7 @@ public enum WebError {
 	request_parameter_missing("request_parameter_missing", "21101","缺少请求参数,或者参数错误"),
 	request_parameter_exit("request_parameter_exit", "21102","重复操作"),
 	request_exception("request_exception", "21103","处理请求异常"),
-	request_auth_verify("auth_exception ", "20031","需要验证码"),
+	request_auth_verify("request_auth_verify ", "20031","需要验证码"),
 	/**普通登录认证错误*/
 	auth_account_unknown("auth_account_unknown", "20101","账号不存在"),
 	auth_credentials_incorrect("auth_credentials_incorrect", "20102","登录密码错误"),
@@ -29,7 +29,7 @@ public enum WebError {
 	auth_excessive_attempts("auth_excessive_attempts", "20105","尝试次数过多,账号被锁定"),
 	auth_credentials_expired("auth_credentials_expired", "20106","用户凭证过期"),
 	auth_captcha_incorrect("auth_captcha_incorrect", "20107","验证码错误"),
-	auth_phonecode_incorrect("auth_captcha_incorrect", "20108","短信码错误"),
+	auth_phonecode_incorrect("auth_phonecode_incorrect", "20108","短信码错误"),
 	auth_exception("auth_exception", "20109","未知认证错误，请联系管理员"),
 	auth_account_force("auth_account_force", "20110","账号被踢出"),
 	auth_account_repeat("auth_account_repeat", "20111","账号已登录"),
