@@ -20,5 +20,4 @@ public interface FrameTplService extends CommonService<FrameTpl, BigInteger>{
 	 * @return
 	 */
 	public boolean exists(String tplCode);
-
 }
