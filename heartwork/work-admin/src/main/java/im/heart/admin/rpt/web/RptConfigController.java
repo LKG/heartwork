@@ -101,7 +101,7 @@ public class RptConfigController extends AbstractController {
 	 * @return
 	 */
 	@RequiresPermissions("rptConfig:view")
-	@RequestMapping(value = apiVer+"/{id}",method = RequestMethod.GET)
+	@RequestMapping(value = apiVer+"/{id}",method = {RequestMethod.GET,RequestMethod.POST} )
 	protected ModelAndView findById(
 			@RequestParam(value = "jsoncallback", required = false) String jsoncallback,
 			@PathVariable BigInteger id,
