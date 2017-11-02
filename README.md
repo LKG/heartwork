@@ -10,3 +10,4 @@
 ###### 用户相互关联
 ###### 区域管理
 ###### 数据字典管理
+######### okhttp spring boot shiro  fastjson 
