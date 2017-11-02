@@ -2,6 +2,7 @@ package im.heart.admin.frame.web;
 
 import java.math.BigInteger;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
 import im.heart.core.CommonConst;
 import im.heart.core.CommonConst.RequestResult;
@@ -29,6 +31,7 @@ import im.heart.core.plugins.persistence.DynamicSpecifications;
 import im.heart.core.web.AbstractController;
 import im.heart.frame.entity.FrameTpl;
 import im.heart.frame.service.FrameTplService;
+import im.heart.frame.service.TemplateService;
 
 
 /**
@@ -47,8 +50,11 @@ public class AdminTplController extends AbstractController {
 
 	@Autowired
 	private FrameTplService frameTplService;
-
-  
+	@Autowired
+	private TemplateService<FrameTpl, BigInteger> templateService;
+	
+	@Resource(name = "freeMarkerConfigurer")
+	private FreeMarkerConfigurer freeMarkerConfigurer;
 	/**
 	 * 
 	 * @Desc：查询所有
@@ -88,6 +94,7 @@ public class AdminTplController extends AbstractController {
 			HttpServletRequest request,
 			ModelMap model) {
 		FrameTpl po = this.frameTplService.findOne(id);
+		model.addAttribute("content", this.templateService.read(id));
 		super.success(model, po);
 		return new ModelAndView(VIEW_DETAILS);
 	}
@@ -128,6 +135,7 @@ public class AdminTplController extends AbstractController {
 			HttpServletRequest request,
 			ModelMap model) {
 		this.frameTplService.save(frameTpl);
+		this.freeMarkerConfigurer.getConfiguration().clearTemplateCache();
 		super.success(model);
 		return new ModelAndView(VIEW_SUCCESS);
 	}
