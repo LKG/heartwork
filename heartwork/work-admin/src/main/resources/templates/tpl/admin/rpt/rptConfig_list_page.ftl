@@ -36,7 +36,7 @@
  	<!---toolbar begin-->
 	 <div id="toolbar">
 	  <div class="bars pull-left" >
-		  <button id="btn-add" class="btn btn-danger" data="0">
+		  <button id="btn-add" class="btn btn-danger hide" data="0">
 				 <i class="fa fa-cloud-upload"></i><@spring.message code="label.default.button.create" />
 		  </button>
 	  </div>
