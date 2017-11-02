@@ -40,7 +40,7 @@
 	        </thead>
 	        <tbody  id="table-tbody" >
 	          <#if (result.content?size<=0) >
-	          		 <tr ><td class="text-center" scope="row" colspan='4' ><@spring.message  code="label.default.empty" /></td></tr>
+	          		 <tr ><td class="text-center" scope="row" colspan='7' ><@spring.message  code="label.default.empty" /></td></tr>
 			 <#else>
 			    <#list result.content as model>
 			    	<tr > 
@@ -109,7 +109,7 @@
 	{{/each}}
  {{else}}
 	<tr id="ext_{{$index}}" class="text-center" >
-		<td class="text-center" scope="row" colspan='4'><@spring.message  code="label.default.empty" /></td>
+		<td class="text-center" scope="row" colspan='7'><@spring.message  code="label.default.empty" /></td>
 	</tr>
  {{/if}}	
 </script>
