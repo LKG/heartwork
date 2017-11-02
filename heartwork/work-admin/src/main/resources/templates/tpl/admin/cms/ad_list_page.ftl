@@ -108,7 +108,7 @@
 	{{/each}}
  {{else}}
 	<tr id="ext_{{$index}}" class="text-center" >
-		<td class="text-center" scope="row" colspan='4'><@spring.message  code="label.default.empty" /></td>
+		<td class="text-center" scope="row" colspan='6'><@spring.message  code="label.default.empty" /></td>
 	</tr>
  {{/if}}	
 </script>
