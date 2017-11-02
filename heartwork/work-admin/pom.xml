@@ -41,11 +41,13 @@
 			<artifactId>work-rpt</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<!-- <dependency> <groupId>im.heart</groupId> <artifactId>work-cms</artifactId> 
+		<dependency>
+			<groupId>im.heart</groupId>
+			<artifactId>work-cms</artifactId>
+			<version>${project.version}</version>
+		</dependency><!-- <dependency> <groupId>im.heart</groupId> <artifactId>work-websocket</artifactId> 
 			<version>${project.version}</version> </dependency> <dependency> <groupId>im.heart</groupId> 
-			<artifactId>work-websocket</artifactId> <version>${project.version}</version> 
-			</dependency> <dependency> <groupId>im.heart</groupId> <artifactId>work-msg</artifactId> 
-			<version>${project.version}</version> </dependency> -->
+			<artifactId>work-msg</artifactId> <version>${project.version}</version> </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
