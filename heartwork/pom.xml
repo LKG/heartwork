@@ -479,9 +479,5 @@
 		<module>work-admin</module>
 		<module>work-frame</module>
 		<module>work-usercore</module>
-		<module>work-msg</module>
-		<module>work-gen</module>
-		<module>work-shop</module>
-		<module>work-cms</module>
 	</modules>
 </project>
