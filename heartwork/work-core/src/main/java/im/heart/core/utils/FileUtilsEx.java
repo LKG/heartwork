@@ -24,6 +24,8 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import im.heart.core.enums.FileHeader;
+
 /**
  * 
  * @author gg
@@ -32,37 +34,6 @@ import org.slf4j.LoggerFactory;
 public class FileUtilsEx extends FileUtils {
 	protected static final Logger logger = LoggerFactory.getLogger(FileUtilsEx.class);
 
-	public enum FileHeader {
-		zip("zip", "504B0304"), // zip头格式
-		jpeg("jpeg", "FFD8FF"), // JPEG头格式
-		png("png", "89504E47"), // PNG头格式
-		gif("gif", "47494638"), // GIF头格式
-		bmp("bmp", "424D");// BMP头格式
-		private String code;
-		private String value;
-
-		private FileHeader(String code, String value) {
-			this.code = code;
-			this.value = value;
-		}
-
-		public String getCode() {
-			return code;
-		}
-
-		public void setCode(String code) {
-			this.code = code;
-		}
-
-		public String getValue() {
-			return value;
-		}
-
-		public void setValue(String value) {
-			this.value = value;
-		}
-
-	};
 	public static String getHumanReadableSize(Long fileSize) {
 		if(fileSize == null){
 			return null;
@@ -116,9 +87,10 @@ public class FileUtilsEx extends FileUtils {
 	 * @throws IOException
 	 */
 	public static boolean isZIP(InputStream input) throws IOException {
-		byte[] head = IOUtils.toByteArray(input,FileHeader.zip.value.length() / 2);
+		
+		byte[] head = IOUtils.toByteArray(input,FileHeader.zip.getValue().length() / 2);
 		String headHex = byteToHex(head);
-		return headHex.equals(FileHeader.zip.value);
+		return headHex.equals(FileHeader.zip.getValue());
 	}
 	/**
 	 * @功能说明： 获取文件大小

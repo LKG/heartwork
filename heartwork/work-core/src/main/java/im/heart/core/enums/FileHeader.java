@@ -53,6 +53,14 @@ public enum FileHeader {
 		this.code = code;
 		this.value = value;
 	}
+	public static FileHeader getExamValue(String value) {
+		for(FileHeader fileHeader:FileHeader.values()){
+			if(fileHeader.getValue().equals(value)||fileHeader.getCode().equals(value)){
+				return fileHeader;
+			}
+		}
+		return null;
+	}
 
 	public String getCode() {
 		return code;
