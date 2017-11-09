@@ -10,9 +10,8 @@ import javax.crypto.spec.DESKeySpec;
 import org.apache.commons.codec.binary.Base64;
 /**
  * 
- * @作者 LKG 
- * @版本 V 1.0 
- * @功能说明：加密解密工具类
+ * @author gg
+ * @desc 加密解密工具类
  */
 public class DesUtils {
 
