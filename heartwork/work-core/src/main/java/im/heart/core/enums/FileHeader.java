@@ -1,9 +1,5 @@
 package im.heart.core.enums;
-/**
- * 
- * @author gg
- * @desc 文件头信息
- */
+
 public enum FileHeader {
 	avi("avi", "41564920"),
 	bat("bat", "406563686f206f66660d"),
@@ -56,14 +52,6 @@ public enum FileHeader {
 	private FileHeader(String code, String value) {
 		this.code = code;
 		this.value = value;
-	}
-	public static FileHeader getExamValue(String value) {
-		for(FileHeader fileHeader:FileHeader.values()){
-			if(fileHeader.getValue().equals(value)||fileHeader.getCode().equals(value)){
-				return fileHeader;
-			}
-		}
-		return null;
 	}
 
 	public String getCode() {
