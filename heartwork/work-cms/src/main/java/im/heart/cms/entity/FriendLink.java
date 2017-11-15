@@ -75,7 +75,7 @@ public class FriendLink {
 	@NotEmpty
 	@NotBlank
 	@Length(min = 1, max = 200)
-	@Column(name = "NAME", nullable = false, updatable = false, length = 200)
+	@Column(name = "NAME", nullable = false,length = 200)
 	private String name;
 
 	@NotEmpty
