@@ -27,7 +27,7 @@
 	<div class="col-xs-12">
 		<div class="input-group">
 			 <span class="input-group-addon">URL</span>
-			 	<input type="text" class="form-control" id="url" value="<#if result.url??>${result.url}</#if>" name="url" placeholder="友链URL"/>
+			 <input type="text" class="form-control" id="url" value="<#if result.url??>${result.url}</#if>" name="url" placeholder="友链URL"/>
  		</div>
 	</div>
  </div>
