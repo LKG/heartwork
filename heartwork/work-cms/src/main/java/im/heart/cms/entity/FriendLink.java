@@ -78,12 +78,12 @@ public class FriendLink {
 	@NotEmpty
 	@NotBlank
 	@Length(min = 1, max = 200)
-	@Column(name = "url", nullable = false, length = 200)
+	@Column(name = "URL", nullable = false, length = 200)
 	private String url;
 	@NotEmpty
 	@NotBlank
 	@Length(min = 1, max = 200)
-	@Column(name = "logo", nullable = false, length = 200)
+	@Column(name = "LOGO", nullable = false, length = 200)
 	private String logo;
 	@Column(name = "STATUS", nullable = false, length = 16)
 	@Enumerated(EnumType.STRING)
