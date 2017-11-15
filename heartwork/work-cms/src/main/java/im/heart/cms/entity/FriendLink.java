@@ -29,7 +29,7 @@ import im.heart.core.enums.Status;
 /**
  * 
  * @author lkg
- * @Desc : 友链
+ * @Desc : 友链表
  */
 @Entity
 @Table(name = "dic_cms_friend_link")
