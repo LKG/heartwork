@@ -4,7 +4,7 @@
 		<div class="input-group">
 	  	<span class="input-group-addon">名称</span>
 	  	<input type="hidden" class="form-control" id="id"  value="${result.id}" name="id" >
-         	<input type="text" class="form-control" id="areaName" value="<#if result.name??>${result.name}</#if>" name="name" placeholder="名称"/>
+         	<input type="text" class="form-control" id="name" value="<#if result.name??>${result.name}</#if>" name="name" placeholder="名称"/>
           <div class="input-group-btn">
            	<select name="status" id="status"  data="<#if result.status??>${result.status}</#if>" style="min-width:100px;"   class="form-control">
 				<option value="pending">未使用</option>
@@ -20,7 +20,6 @@
 		<div class="input-group">
 			 <span class="input-group-addon">logo</span>
 			 	<input type="text" class="form-control" id="logo" value="<#if result.logo??>${result.logo}</#if>" name="logo" placeholder="logo"/>
-			 <input type="hidden" class="form-control" id="custom_code"  value="${result.customCode}" name="customCode" >
  		</div>
 	</div>
  </div>
@@ -29,7 +28,6 @@
 		<div class="input-group">
 			 <span class="input-group-addon">URL</span>
 			 	<input type="text" class="form-control" id="url" value="<#if result.url??>${result.url}</#if>" name="url" placeholder="友链URL"/>
-			 <input type="hidden" class="form-control" id="custom_code"  value="${result.customCode}" name="customCode" >
  		</div>
 	</div>
  </div>
