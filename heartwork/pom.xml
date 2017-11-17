@@ -491,6 +491,7 @@
 		<module>work-conf</module>
 		<module>work-rpt</module>
 		<module>work-admin</module>
+		<module>work-cms</module>
 		<module>work-frame</module>
 		<module>work-usercore</module>
 	</modules>
