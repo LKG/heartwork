@@ -106,9 +106,6 @@ define(function(require, exports, moudles) {
 	        	areaCode=$provinceId.val();
 	        }
 	        if(null==areaCode||areaCode==""){
-	        	areaCode=$provinceId.val();
-	        }
-	        if(null==areaCode||areaCode==""){
 	        	$msg.alert($btn,"<i class='fa fa-exclamation-triangle text-danger'></i>请选择所在地");
 	        	return;
 	        }
