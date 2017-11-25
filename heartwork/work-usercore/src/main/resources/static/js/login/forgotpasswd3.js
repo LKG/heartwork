@@ -1,26 +1,10 @@
 define(function (require, exports, moudles) {
 	var $ = require('jquery');
 	var jQuery = require('jquery');
-	 require('validate');
+	require('validate');
 	var artDialog = require('artDialog');
-	 var $baseRoot=$("#baseRoot");
-		var getFormData=function(obj){
-			var data = {}; 
-			var $form=$(obj);
-			var dataArray=$form.serializeArray();
-			 $.each(dataArray, function() { 
-				 if (data[this.name]) {  
-			           if (!data[this.name].push) {  
-			        	   data[this.name] = [data[this.name]];  
-			           }  
-			           data[this.name].push(this.value || '');  
-			       } else {  
-			    	   data[this.name] = this.value || '';  
-			       }  
-			 });
-			 return data;
-		};
-	 var baseRoot=$baseRoot.attr("href");
+	var $baseRoot=$("#baseRoot");
+	var baseRoot=$baseRoot.attr("href");
 	 $("#J_ForgotpasswdForm").validate({
 			rules: {
 				passWord: {
