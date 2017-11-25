@@ -11,22 +11,6 @@ define(function (require, exports, moudles) {
 			var imgUrl=$codeImg.attr("src")+"?_r_"+Math.random();
 			$codeImg.attr("src",imgUrl);
 	});
-	var getFormData=function(obj){
-		var data = {}; 
-		var $form=$(obj);
-		var dataArray=$form.serializeArray();
-		 $.each(dataArray, function() { 
-			 if (data[this.name]) {  
-		           if (!data[this.name].push) {  
-		        	   data[this.name] = [data[this.name]];  
-		           }  
-		           data[this.name].push(this.value || '');  
-		       } else {  
-		    	   data[this.name] = this.value || '';  
-		       }  
-		 });
-		 return data;
-	};
 	$("#J_ForgotpasswdForm").validate({
 		rules: {
 			account: {
