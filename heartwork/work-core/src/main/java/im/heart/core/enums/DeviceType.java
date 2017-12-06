@@ -40,6 +40,7 @@ public enum DeviceType {
 		this.name = name;
 	}
 	private DeviceType(String name,String desc) {
-		this.name = name;
+		this(name);
+		this.desc = desc;
 	}
 }
