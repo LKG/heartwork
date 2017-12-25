@@ -1,10 +1,21 @@
 package im.heart.core.utils;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URLEncoder;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -21,8 +32,36 @@ public class OkHttpClientUtils {
 	public static String DEFAULT_ENCODING = "UTF-8";
 
 	private final static OkHttpClient mOkHttpClient = new OkHttpClient();
+	public static class UnSafeTrustManager implements X509TrustManager {
+		@Override
+		public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+		}
 
+		@Override
+		public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
+		}
 
+		@Override
+		public X509Certificate[] getAcceptedIssuers() {
+			return new java.security.cert.X509Certificate[] {};
+		}
+	}
+	public static KeyManager[] prepareKeyManager(KeyStore clientKeyStore, String password) {
+		try {
+			KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+			keyManagerFactory.init(clientKeyStore, password.toCharArray());
+			return keyManagerFactory.getKeyManagers();
+		} catch (KeyStoreException e) {
+			e.printStackTrace();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnrecoverableKeyException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	public static String fetchEntityString(String url, Map<String, Object> params) throws IOException {
 		return fetchEntityString(url, params, DEFAULT_ENCODING);
 	}
@@ -59,7 +98,7 @@ public class OkHttpClientUtils {
 				httpParam = httpParam + key + "=" + URLEncoder.encode((String) params.get(key), encoding);
 			}
 		}
-		return httpParam;
+		return url+httpParam;
 	}
 
 	public static FormBody builderFormBody(Map<String, Object> params) throws IOException {
