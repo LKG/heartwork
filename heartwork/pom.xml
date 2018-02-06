@@ -21,7 +21,7 @@
 		<commons-collections.version>3.2.2</commons-collections.version>
 		<commons-compress.version>1.8.1</commons-compress.version>
 		<commons-fileupload.version>1.3</commons-fileupload.version>
-		<commons-lang3.version>3.1</commons-lang3.version>
+		<commons-lang3.version>3.7</commons-lang3.version>
 		<!--数据库驱动依赖begin -->
 		<mysql.jdbc.version>5.1.21</mysql.jdbc.version>
 		<sqlite.version>3.8.11.2</sqlite.version>
