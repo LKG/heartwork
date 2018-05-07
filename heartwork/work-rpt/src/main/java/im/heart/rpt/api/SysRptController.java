@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,8 @@ public class SysRptController extends AbstractController {
 	@Autowired
 	private RptConfigService rptConfigService;
 
-	protected static final String open = "{{";
-	protected static final String end = "}}";
+	protected static final String openTag = "{{";
+	protected static final String endTag = "}}";
 	
 	/**
 	 * 
@@ -77,28 +78,29 @@ public class SysRptController extends AbstractController {
 	 * @return
 	 */
 	private String logic(String sqlCont, Map<String, Object> reqargs) {
-		String openTag = open + "if";
-		String colseTag = "if" + end;
+		String open = openTag + "if";
+		String colse = "if" + endTag;
 		if (sqlCont.indexOf(openTag) < 0) {// 是否有逻辑判断
 			return sqlCont;
 		}
-		String[] templates = StringUtilsEx.substringsBetween(sqlCont, openTag,colseTag);
+		String[] templates = StringUtils.substringsBetween(sqlCont, open,endTag);
 		if (templates != null) {
 			for (String logic : templates) {
 				//抽取条件
 				String propTest = StringUtilsEx.groupString(logic,"test=\"(.+?)\"",1);
 				String replacement = "";
-				if (StringUtilsEx.isNotBlank(propTest)) {
+				if (StringUtils.isNotBlank(propTest)) {
 					if (reqargs.containsKey(propTest)) {
 						String reqVal = reqargs.get(propTest).toString();
-						if (StringUtilsEx.isNotBlank(reqVal)) {
-						   replacement= StringUtilsEx.substringBeforeLast(logic, open);
-				   		   replacement= StringUtilsEx.substringAfter(replacement, end);
+						if (StringUtils.isNotBlank(reqVal)) {
+						   replacement= StringUtils.substringBetween(logic, openTag,endTag);
+//						   replacement= StringUtils.substringBeforeLast(logic, openTag);
+//				   		   replacement= StringUtils.substringAfter(replacement, endTag);
 						}
 					}
 
 				}
-				sqlCont = StringUtilsEx.replaceOnce(sqlCont, openTag + logic+ colseTag, replacement);
+				sqlCont = StringUtils.replaceOnce(sqlCont, open + logic+ colse, replacement);
 			}
 			return sqlCont;
 		}
@@ -113,10 +115,10 @@ public class SysRptController extends AbstractController {
 	 * @return
 	 */
 	private String buildSQL(String sqlCont, Map<String, Object> reqargs) {
-		if (sqlCont.indexOf(open) > 0) {
+		if (sqlCont.indexOf(openTag) > 0) {
 			// 判断是否有逻辑处理
 			sqlCont = this.logic(sqlCont, reqargs);
-			String[] temp = StringUtilsEx.substringsBetween(sqlCont, open, end);
+			String[] temp = StringUtils.substringsBetween(sqlCont, openTag, endTag);
 			if (temp != null) {
 				for (String arg : temp) {
 					int index = arg.indexOf(":");
@@ -128,12 +130,12 @@ public class SysRptController extends AbstractController {
 					}
 					if (reqargs.containsKey(strTemp)) {// 判断是否传递的有参数
 						String reqargsValue = reqargs.get(strTemp).toString();
-						if (StringUtilsEx.isNotBlank(reqargsValue)) {
+						if (StringUtils.isNotBlank(reqargsValue)) {
 							defaultValue = reqargsValue;
 						}
 
 					}
-					sqlCont = StringUtilsEx.replaceOnce(sqlCont, open + arg	+ end, defaultValue);
+					sqlCont = StringUtils.replaceOnce(sqlCont, openTag + arg	+ endTag, defaultValue);
 				}
 			}
 		}
