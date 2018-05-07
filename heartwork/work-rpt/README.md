@@ -56,6 +56,8 @@
 ```
 ### 逻辑条件处理
 ```java
+    protected static final String openTag = "{{";
+	protected static final String endTag = "}}";
 /**
 	 * 
 	 * @功能说明： 处理逻辑条件 {{if test="query" }}{{/if}}
@@ -95,6 +97,8 @@
 ```
 ### 解析处理sqlCont
 ```java
+    protected static final String openTag = "{{";
+	protected static final String endTag = "}}";
 	/**
 	 * 
 	 * @功能说明：处理SQL
@@ -130,22 +134,5 @@
 		return sqlCont;
 	}
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
