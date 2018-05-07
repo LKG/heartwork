@@ -14,7 +14,7 @@
 ### 1. 表结构设计
 | 字段名        | 数据类型   |  约束  |描述  |
 | --------   | -----:  | :----:  | :----:  |
-| rpt_id     | bigint(32) |   NOT NULL AUTO_INCREMENT   |   报表Id     |
+| rpt_id     | bigint(32) |NOT NULL AUTO_INCREMENT PRIMARY KEY  |   报表Id     |
 | rpt_code   | varchar(64)  |   NOT NULL   |   报表代号     |
 | rpt_name   | varchar(128)  |   NOT NULL   |   报表名称    |
 | rpt_type     |varchar(64)  |   NOT NULL   |   报表类型     |
