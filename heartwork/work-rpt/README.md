@@ -1,5 +1,16 @@
 # 程序设计之动态报表
 ------
+## 需求说明
+
+    
+
+ - 需要动态形成报表，实现报表权限可控制
+ - 支持SQL语句形式，支持java 代码解析方式，支持外部嵌入式报表
+ - 方式SQL 注入
+ - 可进行简单的if语法 三目运算 ，支持设置默认值
+ - 
+## 程序设计应该采用渐进式 ，程序是可以进化的
+
 ### 1. 表结构设计
 | 字段名        | 数据类型   |  约束  |描述  |
 | --------   | -----:  | :----:  | :----:  |
@@ -8,7 +19,7 @@
 | rpt_name   | varchar(128)  |   NOT NULL   |   报表名称    |
 | rpt_type     |varchar(64)  |   NOT NULL   |   报表类型     |
 | rpt_order     | int(11) |   NOT NULL |   排序号     |
-| rpt_url     | int(11) |   NOT NULL |   排序号     |
+| rpt_url     | varchar(128) |   NOT NULL |   报表展示地址    |
 | rpt_cri_type     | enum('sql','java','stored','other') | NOT NULL DEFAULT 'sql' |   解析类型   |
 | rpt_cri_cont     | text |   NOT NULL |   SQL语句 或者Java类绝对路径    |
 | group_id     | bigint(32) |   NOT NULL DEFAULT '1000'  |   分组id    |
